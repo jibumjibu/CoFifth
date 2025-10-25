@@ -31,11 +31,32 @@
 
     .grid-all {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
       justify-items: center;
       margin-top: 30px;
     }
+
+        @media (max-width: 600px) {
+      table {
+        width: 120px;
+        height: 120px;
+      }
+
+      .key-title {
+        font-size: 14px;
+      }
+
+      td {
+        font-size: 12px;
+      }
+
+        .grid-all {
+        gap: 5px;
+      }
+    }
+
+
 
     .table-container {
       text-align: center;
