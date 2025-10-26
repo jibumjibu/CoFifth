@@ -1,4 +1,4 @@
-body {
+    body {
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
@@ -38,7 +38,7 @@ body {
       background-color: #28a745 !important;
       color: white;
       font-weight: bold;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
     }
 
     .grid-all {
@@ -67,7 +67,7 @@ body {
       height: 150px;
       text-align: center;
       background-color: white;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
       overflow: hidden;
     }
 
@@ -83,13 +83,13 @@ body {
     }
 
     tr:nth-child(3) td {
-      background-color: #ddd; /* distinct row 3 color */
+      background-color: #ddd;
     }
 
     .index-label {
       position: absolute;
-      top: 1px;      /* move closer to top */
-      left: 1px;     /* move to extreme left */
+      top: 1px;
+      left: 1px;
       font-size: 9px;
       color: #666;
       font-weight: normal;
@@ -103,12 +103,6 @@ body {
       background-color: #ffe0e0;
     }
 
-    #r1c2 {
-      color: red;
-    }
-
-
-    /* ✅ All view: remove outer border + shrink table */
     .grid-all table {
       width: 150px;
       height: 150px;
@@ -127,7 +121,6 @@ body {
       margin-bottom: 2px;
     }
 
-    /* ✅ Responsive: smaller on mobile */
     @media (max-width: 600px) {
       .grid-all {
         grid-template-columns: repeat(3, 1fr);
