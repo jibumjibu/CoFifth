@@ -1,4 +1,4 @@
-    body {
+body {
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
@@ -12,6 +12,11 @@
       justify-content: center;
       max-width: 700px;
       margin: 0 auto 30px;
+      position: sticky;
+      top: 0;
+      background: #f8f9fa;
+      padding: 10px 0;
+      z-index: 10;
     }
 
     button {
@@ -29,51 +34,65 @@
       background-color: #0056b3;
     }
 
+    button.active {
+      background-color: #28a745 !important;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    }
+
     .grid-all {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      justify-items: center;
-      margin-top: 30px;
+      gap: 10px;
+      margin: 10px auto 0;  /* center horizontally */
+      justify-items: center; /* center each table in its cell */
+      max-width: 700px;    /* optional: limit maximum width */
     }
+
+
 
     .table-container {
       text-align: center;
     }
 
+    .key-title {
+      font-size: 16px;
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+
     table {
       border-collapse: collapse;
       margin: 0 auto;
-      width: 180px;
-      height: 180px;
+      width: 150px;
+      height: 150px;
       text-align: center;
       background-color: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
       overflow: hidden;
     }
 
     td {
-      border: 2px solid #333;
+      border: 1.5px solid #333;
       width: 33%;
       height: 33%;
       position: relative;
-      font-size: 16px;
+      font-size: 13px;
       font-weight: bold;
       vertical-align: middle;
       transition: background-color 0.3s;
     }
 
-        /* Give row 3 cells a distinct background color */
     tr:nth-child(3) td {
-      background-color: #afaaaa; /* light gray — change as you wish */
+      background-color: #ddd; /* distinct row 3 color */
     }
-
 
     .index-label {
       position: absolute;
-      top: 3px;
-      left: 5px;
-      font-size: 10px;
+      top: 1px;      /* move closer to top */
+      left: 1px;     /* move to extreme left */
+      font-size: 9px;
       color: #666;
       font-weight: normal;
     }
@@ -86,31 +105,43 @@
       background-color: #ffe0e0;
     }
 
-    .key-title {
-      font-size: 18px;
-      margin-bottom: 5px;
-      font-weight: bold;
+    /* ✅ All view: remove outer border + shrink table */
+    .grid-all table {
+      width: 150px;
+      height: 150px;
+      font-size: 11px;
+      border: none;
+      box-shadow: none;
     }
 
-    #singleTableContainer {
-      margin-top: 20px;
+    .grid-all td {
+      border: 1px solid #444;
+      font-size: 10px;
     }
 
-    #allTablesContainer {
-      width: 45%;
-      margin: 0 auto;
+    .grid-all .key-title {
+      font-size: 13px;
+      margin-bottom: 2px;
     }
 
-    #keyName {
-      font-size: 22px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
+    /* ✅ Responsive: smaller on mobile */
+    @media (max-width: 600px) {
+      .grid-all {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
 
-    button.active {
-      background-color: #28a745 !important; /* green highlight */
-      color: white;
-      font-weight: bold;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    }
+      .grid-all table {
+        width: 110px;
+        height: 110px;
+        font-size: 10px;
+      }
 
+      .grid-all td {
+        font-size: 10px;
+      }
+
+      .grid-all .key-title {
+        font-size: 11px;
+      }
+    }

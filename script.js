@@ -1,4 +1,4 @@
-    const chords = {
+const chords = {
       C: ["C", "Dm", "Em", "F", "G", "Am", "Bdim", "Edim", "F#dim"],
       G: ["G", "Am", "Bm", "C", "D", "Em", "F#dim", "Bdim", "C#dim"],
       D: ["D", "Em", "F#m", "G", "A", "Bm", "C#dim", "F#dim", "G#dim"],
@@ -13,7 +13,6 @@
       F: ["F", "Gm", "Am", "Bb", "C", "Dm", "Edim", "Adim", "Bdim"]
     };
 
-    // Updated layout map
     const layout = {
       0: "r1c2",
       1: "r2c1",
@@ -22,8 +21,8 @@
       4: "r1c3",
       5: "r2c2",
       6: "r3c2",
-      7: "r3c1", // new
-      8: "r3c3"  // new
+      7: "r3c1",
+      8: "r3c3"
     };
 
     const buttons = document.querySelectorAll(".button-container button");
@@ -32,7 +31,6 @@
     const allTablesContainer = document.getElementById("allTablesContainer");
 
     buttons.forEach(button => {
-
       button.addEventListener("click", () => {
         const key = button.textContent;
         keyName.textContent = "";
@@ -40,11 +38,8 @@
         allTablesContainer.innerHTML = "";
         allTablesContainer.style.display = "none";
 
-                  // Remove highlight from all buttons
-      buttons.forEach(btn => btn.classList.remove("active"));
-
-      // Highlight the clicked button
-      button.classList.add("active");
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
 
         if (key === "All") {
           allTablesContainer.style.display = "grid";
@@ -79,14 +74,11 @@
         const cellId = layout[i];
         if (cellId) {
           const cell = table.querySelector(`#${cellId}`);
-
-          // skip index label for row3col1 and row3col3
           if (cellId === "r3c1" || cellId === "r3c3") {
             cell.textContent = chord;
           } else {
             cell.innerHTML = `<div class="index-label">${i + 1}</div>${chord}`;
           }
-
           if (chord.includes("#")) cell.classList.add("sharp");
           else if (chord.includes("b")) cell.classList.add("flat");
         }
@@ -95,7 +87,7 @@
       return table.innerHTML;
     }
 
-        // --- Default load: select and display key C ---
+    // Default load: Key C
     window.addEventListener("DOMContentLoaded", () => {
       const defaultButton = Array.from(buttons).find(btn => btn.textContent === "C");
       if (defaultButton) {
@@ -104,4 +96,3 @@
         singleTableContainer.innerHTML = generateTableHTML(chords["C"]);
       }
     });
-
