@@ -103,6 +103,11 @@
       background-color: #ffe0e0;
     }
 
+    #r1c2 {
+      color: red;
+    }
+
+
     .grid-all table {
       width: 150px;
       height: 150px;
@@ -114,11 +119,6 @@
     .grid-all td {
       border: 1px solid #444;
       font-size: 12px;
-    }
-
-    .grid-all .key-title {
-      font-size: 13px;
-      margin-bottom: 2px;
     }
 
     @media (max-width: 600px) {

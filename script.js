@@ -26,7 +26,7 @@
     };
 
     const buttons = document.querySelectorAll(".button-container button");
-    const keyName = document.getElementById("keyName");
+    //const keyName = document.getElementById("keyName");
     const singleTableContainer = document.getElementById("singleTableContainer");
     const allTablesContainer = document.getElementById("allTablesContainer");
 
@@ -79,7 +79,7 @@
 
       button.addEventListener("click", () => {
         let key = button.textContent;
-        keyName.textContent = "";
+        //keyName.textContent = "";
         singleTableContainer.innerHTML = "";
         allTablesContainer.innerHTML = "";
         allTablesContainer.style.display = "none";
@@ -92,11 +92,11 @@
           for (const k in chords) {
             const tableDiv = document.createElement("div");
             tableDiv.classList.add("table-container");
-            tableDiv.innerHTML = `<div class='key-title'>${formatKeyLabel(k)}</div>${generateTableHTML(chords[k])}`;
+            tableDiv.innerHTML = `${generateTableHTML(chords[k])}`;
             allTablesContainer.appendChild(tableDiv);
           }
         } else {
-          keyName.textContent = key;
+          //keyName.textContent = key;
           // Convert symbols back to #/b for array lookup
           const keyForArray = key.replace("♯", "#").replace("♭", "b");
           singleTableContainer.innerHTML = generateTableHTML(chords[keyForArray]);
@@ -109,7 +109,7 @@
       const defaultButton = Array.from(buttons).find(btn => btn.textContent === "C");
       if (defaultButton) {
         defaultButton.classList.add("active");
-        keyName.textContent = "C";
+        //keyName.textContent = "C";
         singleTableContainer.innerHTML = generateTableHTML(chords["C"]);
       }
     });
