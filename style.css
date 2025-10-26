@@ -50,8 +50,6 @@ body {
       max-width: 700px;    /* optional: limit maximum width */
     }
 
-
-
     .table-container {
       text-align: center;
     }
@@ -104,6 +102,11 @@ body {
     .flat {
       background-color: #ffe0e0;
     }
+
+    #r1c2 {
+      color: red;
+    }
+
 
     /* ✅ All view: remove outer border + shrink table */
     .grid-all table {
